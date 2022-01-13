@@ -14,7 +14,7 @@ const getDateWithOffset = (date, offsetHours) => {
 
 export const Clock = ({ date }) => {
   const timezones = useSelector((state) => state.timezones.timezones);
-  const [{ timezone, name }, setCurrentTimeZone] = useState(timezones[2]);
+  const [{ timezone, name }, setCurrentTimeZone] = useState(timezones[0]);
   const displayDate = getDateWithOffset(date, parseInt(timezone));
 
   const handleChange = (e) => {
