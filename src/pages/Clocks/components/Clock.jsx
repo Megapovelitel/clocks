@@ -14,7 +14,7 @@ const getDateWithOffset = (date, offsetHours) => {
 
 export const Clock = ({ date }) => {
   const timezones = useSelector((state) => state.timezones.timezones);
-  const [{ timezone, name }, setCurrentTimeZone] = useState(timezones[0]);
+  const [{ timezone, name }, setCurrentTimeZone] = useState(timezones[2]);
   const displayDate = getDateWithOffset(date, parseInt(timezone));
 
   const handleChange = (e) => {
@@ -27,7 +27,7 @@ export const Clock = ({ date }) => {
     <div className="clock">
       <AnalogClock value={displayDate} />
       <DigitalClock value={displayDate} />
-      <select onChange={handleChange}>
+      <select value={name} onChange={handleChange}>
         {timezones.map((timezone) => {
           return <option value={timezone.name}>{timezone.name}</option>;
         })}
