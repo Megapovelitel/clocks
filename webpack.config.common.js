@@ -10,6 +10,7 @@ module.exports = {
   },
   resolve: {
     modules: ["node_modules"],
+    extensions: [".jsx", ".js", ".json"],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -17,12 +18,21 @@ module.exports = {
       inject: "body",
     }),
   ],
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
+  },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         use: { loader: "babel-loader" },
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
       },
     ],
   },

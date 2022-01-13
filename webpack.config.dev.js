@@ -9,6 +9,11 @@ module.exports = merge(webpackCommonConfig, {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.EnvironmentPlugin({ NODE_ENV: "development" }),
   ],
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+  },
   devtool: "source-map",
   devServer: {
     hot: true,
