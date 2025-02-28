@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Clock } from "./components/Clock";
+import { ClockWidget } from "./components/ClockWidget";
 import "./Clocks.css";
 
 const getDateNoOffset = () => {
@@ -21,7 +21,7 @@ export const Clocks = () => {
   }, []);
 
   const clocks = Array.from({ length: numberOfClocks }, (_, index) => (
-    <Clock key={index} date={date} />
+    <ClockWidget key={index} date={date} />
   ));
 
   return <div className="grid">{clocks}</div>;
