@@ -1,11 +1,11 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const port = process.env.PORT || 3000;
 
 module.exports = {
   context: __dirname,
-  entry: path.resolve(__dirname, 'src/index.tsx'),
+  entry: path.resolve(__dirname, "src/index.tsx"),
   output: {
     path: path.join(__dirname, "dist"),
     filename: "[name].js",
@@ -21,9 +21,9 @@ module.exports = {
     }),
     new ForkTsCheckerWebpackPlugin({
       typescript: {
-        configFile: path.resolve(__dirname, "tsconfig.json")
-      }
-    })
+        configFile: path.resolve(__dirname, "tsconfig.json"),
+      },
+    }),
   ],
   performance: {
     hints: false,
