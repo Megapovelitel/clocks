@@ -1,11 +1,11 @@
-import { CommonClockProps } from "./types";
+import { CommonClockProps } from "./types"
 
 export const DigitalClock = ({ value }: CommonClockProps) => {
-  if (!value) {
-    return null
-  }
+	if (!value) {
+		return null
+	}
 
-  const time = value.toLocaleTimeString();
+	const time = value.toLocaleTimeString()
 
-  return <p>{time}</p>;
-};
+	return <p>{time}</p>
+}

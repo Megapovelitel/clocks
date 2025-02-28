@@ -1,31 +1,31 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react"
 
-import { getTimezonesThunk, timezoneSelectors } from "../store/timezoneSlice";
-import { useAppDispatch, useAppSelector } from "../store";
+import { getTimezonesThunk, timezoneSelectors } from "../store/timezoneSlice"
+import { useAppDispatch, useAppSelector } from "../store"
 
 type TimeZonesDataLayerProps = {
   children?: React.ReactNode
 }
 
 export const TimeZonesDataLayer = ({ 
-  children
+	children
 }: TimeZonesDataLayerProps): JSX.Element => {
-  const loading = useAppSelector(timezoneSelectors.getTimezoneLoading)
-  const error = useAppSelector(timezoneSelectors.getTimezoneError)
+	const loading = useAppSelector(timezoneSelectors.getTimezoneLoading)
+	const error = useAppSelector(timezoneSelectors.getTimezoneError)
 
-  const dispatch = useAppDispatch();
+	const dispatch = useAppDispatch()
 
-  useEffect(() => {
-    dispatch(getTimezonesThunk())
-  }, []);
+	useEffect(() => {
+		dispatch(getTimezonesThunk())
+	}, [])
 
-  if (loading) {
-    return <p>{"Загрузка..."}</p>;
-  }
+	if (loading) {
+		return <p>{"Загрузка..."}</p>
+	}
 
-  if (error) {
-    return <p>{error}</p>;
-  }
+	if (error) {
+		return <p>{error}</p>
+	}
 
-  return <div>{children}</div>;
-};
+	return <div>{children}</div>
+}

@@ -1,5 +1,5 @@
 
-declare module 'react-clock' {
+declare module "react-clock" {
     type ClockProps = {
         value: Date
         size: number
